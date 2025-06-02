@@ -27,4 +27,11 @@ Number of running processes
 Number of sleeping processes  
 Number of zombie processes  
   
-You can redirect the script output to a file and then send it to your email.
+You can redirect the script output to a file and then send it to your email.  
+```
+crontab -e  
+00 07 * * * /servers/sys_info_check.sh &> /var/www/html/upload/sys_info_check  
+00 07 * * * bash /servers/attachment_sys_info_check.sh &> /var/www/html/upload/attachment_sys_info_check.csv  
+05 07 * * * mail -s 'system status information' "your email" < /var/www/html/upload/sys_info_check  
+05 07 * * * echo "System Information Attachment" | mail -s 'Daily Patrol Results Attachment' -a /var/www/html/upload/attachment_sys_info_check.csv  "your email"  
+```
