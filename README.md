@@ -33,5 +33,10 @@ crontab -e
 00 07 * * * /servers/sys_info_check.sh &> /var/www/html/upload/sys_info_check  
 00 07 * * * bash /servers/attachment_sys_info_check.sh &> /var/www/html/upload/attachment_sys_info_check.csv  
 05 07 * * * mail -s 'system status information' "your email" < /var/www/html/upload/sys_info_check  
-05 07 * * * echo "System Information Attachment" | mail -s 'Daily Patrol Results Attachment' -a /var/www/html/upload/attachment_sys_info_check.csv  "your email"  
+05 07 * * * echo "System Information Attachment" | mail -s 'Daily Patrol Results Attachment' -a /var/www/html/upload/attachment_sys_info_check.csv  "your email"    
 ```
+You can also deploy the rsync service for incremental backups.  
+```
+rsync -ave
+```
+
