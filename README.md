@@ -26,7 +26,8 @@ Total number of processes
 Number of running processes  
 Number of sleeping processes  
 Number of zombie processes  
-  
+
+修改定时任务的环境变量  在crontab 里写入 : PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin:/root/bin  
 You can redirect the script output to a file and then send it to your email.  
 ```
 crontab -e  
